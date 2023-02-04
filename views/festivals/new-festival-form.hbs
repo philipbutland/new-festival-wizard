@@ -1,0 +1,108 @@
+<div class="container">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <h1>New Festival</h1>
+
+                <hr>
+
+                <form action="/festivals/create" method="POST" enctype="multipart/form-data">
+                    <label>
+                        <b>Name:</b> <input   type="text" name="name" placeholder="Festival name" value="{{oldData.name}}"/>
+                    </label><br><br>
+
+                    <label>
+                        <b>Upload Image:</b> <input type="file" name="imageURL" placeholder="Add a link to a file" value="{{oldData.imageURL}}">
+
+                    </label><br><br>
+
+                    <label>
+                        <b>Start Date:</b> <input type="date" name="startDate" placeholder="Start Date" value="{{oldData.startDate}}">
+                    </label>
+
+                    <label>
+                        <b>End Date:</b> <input type="date" name="endDate" placeholder="End Date (if this is empty, Start Date is used)"  value="{{oldData.endDate}}">
+                    </label><br><br>
+
+                    <label>
+                        <b>Artists:</b> <input type="text" name="artists" placeholder="Artists performing" value="{{oldData.artists}}">
+                    </label><br><br>
+
+                    <label>
+                        <b>Country:</b> 
+        
+                        <select id="country" name="country" class="">
+                            {{#if OldData.country}}
+                              <option value={{oldData.country}} selected>{{oldData.country}}</option>
+                            {{/if}}
+
+                            {{#each countries}}
+                                <option value={{this}}>{{this}}</option>
+                            {{/each}}
+                        </select> 
+   
+                    </label>  <br><br>  
+
+                    <label>
+                        <b>City:</b> <input type="text" name="city" placeholder="City" value="{{oldData.city}}">
+                    </label><br><br>
+
+                    <label>
+                        <b>Address:</b> <input type="text" name="address" placeholder="Address" value="{{oldData.address}}">
+                    </label><br><br>
+
+                    <label>
+                        <b>Currency:</b> 
+                            <select name="currency">
+                                <option value={{oldData.currency}} selected>{{oldData.currency}}</option>
+                                <option value="EUR" selected>EUR</option>
+                                <option value="USD">USD</option>
+                                <option value="GBP">GBP</option>
+                            </select>
+                    </label><br><br>
+
+                    <label>
+                        <b>Min Price:</b> <input type="number" name="minPrice" placeholder="Minimum Price" value="{{oldData.minPrice}}">
+                    </label>
+
+                    <label>
+                        <b>Max Price:</b> <input type="number" name="maxPrice" placeholder="Maximum Price" value="{{oldData.maxPrice}}">
+                    </label><br><br>
+
+                    <label>
+                        <b>Website:</b> <input type="text" name="website" placeholder="Add a link to a URL" value="{{oldData.website}}">
+                    </label><br><br>
+
+                    <label>
+                        <b>Key fact:</b> <input type="text" name="mustKnow" placeholder="Add one key fact about the festival"value="{{oldData.mustKnow}}">
+                    </label><br><br>
+
+                    <label>
+                        <b>Genre:</b> 
+                        <select name="genre" multiple>
+                            <option value={{oldData.genre}} selected>{{oldData.genre}}</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Electronic">Electronic</option>
+                            <option value="Folk">Folk</option>
+                            <option value="Techno">Techno</option>
+                            <option value="Classical">Classical</option>
+                            </select>
+                    </label><br><br>
+
+                                       
+
+                    <input type="submit" value="Create Festival" class="btn-dark btn"><br><br>
+
+                    {{#if errorMessage}}
+                      <p class={{errorType}}>{{errorMessage}}</p>
+                    {{/if}}
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

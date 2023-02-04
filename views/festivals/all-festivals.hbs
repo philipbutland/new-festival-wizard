@@ -1,0 +1,23 @@
+<h1>Here are all the Festivals in our Database</h1>
+
+<div id="container"
+
+{{#if allFestivals}}
+
+  {{#each allFestivals}}
+    <div style="border: solid blue; padding:10px 10px 10px 10px">
+      <h2>{{name}}</h2>
+
+      <p>Date: {{startDate}} - {{endDate}} </p>
+      <p>Location: {{location}}</p>
+      <div><a href="/festivals/{{_id}}">See Details</a></div>
+
+    </div><br><br>
+  {{/each}}
+
+{{else}}
+  <p>  No festivals in the Database </p>
+{{/if}}
+
+</div>
+
